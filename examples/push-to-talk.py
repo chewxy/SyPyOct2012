@@ -1,6 +1,6 @@
 #!/usr/bin/env python 
 # -*- coding: utf-8 -*- 
-import sys, zmq, socket, re, traceback
+import sys, zmq, socket, re
 
 HOSTING = False
 if '--host' in sys.argv:
@@ -22,10 +22,10 @@ for arg in sys.argv:
 		pass
 
 if not HOSTING and not IP:
-	print 'IP Address needed'
+	raise Exception('IP Address needed')
 	sys.exit()
 if not PORT:
-	print 'PORT NEEDED'
+	raise Exception('PORT NEEDED')
 	sys.exit()
 
 context = zmq.Context()
@@ -48,10 +48,11 @@ def main():
 		try:
 			socks = dict(poller.poll(1000))
 			msg = pullSocket.recv()
-			print '>> %s' % msg
+			print ('Received: %s' % msg)
 			continue
 		except KeyboardInterrupt:
-			i = raw_input('>')
+			print ('\b\b')
+			i = raw_input('Sent: ')
 			pushSocket.send(i)
 
 if __name__ == '__main__':
