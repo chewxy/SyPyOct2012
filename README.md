@@ -25,7 +25,7 @@ Push to talk is a walkie talkie simulator I built because I was working on an ol
 To use: 
 
 * If you want to connect: `./push-to-talk.py <IP> <PORT>`
-* If you want to host: `./push-to-talk.py <PORT>
+* If you want to host: `./push-to-talk.py <PORT>`
 * Press Ctrl+C if you want to send something to the other machine.
 * This is most fun if you do it on multiple physical machines on multiple different OSes
 * Or if you are boring you can just fire up two terminals and talk to yourself as if you're FOREVER APHONE.
